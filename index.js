@@ -14,11 +14,22 @@ import adminRoutes from './routes/adminRoutes.js';
 dotenv.config();
 
 
+const allowedOrigins = [
+  'https://botfolio-frontend.netlify.app',
+  'https://botfolio.dev'
+];
+
 const app = express();
 
 
 app.use(cors({
-  origin: 'https://botfolio-frontend.netlify.app',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 app.use(express.json({ limit: '50mb' })); // Increased limit for potential image uploads
