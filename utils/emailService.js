@@ -52,7 +52,7 @@ export const sendWelcomeEmail = async (toEmail, name) => {
         </p>
 
         <div style="margin: 35px 0; text-align: center;">
-          <a href="https://botfolio-frontend.netlify.app/dashboard" style="display: inline-block; padding: 15px 30px; background-color: #F4A100; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 18px; box-shadow: 0 5px 15px rgba(244, 161, 0, 0.4); transition: background-color 0.3s ease;">
+          <a href="https://botfolio.dev/dashboard" style="display: inline-block; padding: 15px 30px; background-color: #F4A100; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 18px; box-shadow: 0 5px 15px rgba(244, 161, 0, 0.4); transition: background-color 0.3s ease;">
             🚀 Go to your Dashboard
           </a>
         </div>
