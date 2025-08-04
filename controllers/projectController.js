@@ -8,8 +8,8 @@ export const createProject = async (req, res) => {
     const { clientName, description } = req.body;
 
     // Debug Logs 🚀
-    console.log("📦 Incoming request body:", req.body);
-    console.log("👤 Authenticated user:", req.user);
+    //console.log("📦 Incoming request body:", req.body);
+   // console.log("👤 Authenticated user:", req.user);
 
     const project = await Project.create({
       user: req.user.id,
@@ -82,7 +82,7 @@ export const deleteProject = async (req, res) => {
 
     // 💣 Delete tasks with matching project ObjectId
     const deletedTasks = await Task.deleteMany({ project: projectId });
-    console.log(`🗑️ Deleted ${deletedTasks.deletedCount} tasks related to project ${req.params.id}`);
+    //console.log(`🗑️ Deleted ${deletedTasks.deletedCount} tasks related to project ${req.params.id}`);
 
     res.json({ message: 'Project and associated tasks deleted successfully' });
   } catch (err) {
