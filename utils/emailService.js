@@ -76,7 +76,7 @@ export const sendWelcomeEmail = async (toEmail, name) => {
 
     try {
         await transporter.sendMail(mailOptions);
-        console.log(`Welcome email sent to ${toEmail}`);
+        //console.log(`Welcome email sent to ${toEmail}`);
     } catch (error) {
         console.error(`Error sending welcome email to ${toEmail}:`, error);
     }
