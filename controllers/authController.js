@@ -24,7 +24,7 @@ export const signup = async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: '30d', // Unified to 3 hours to match frontend AuthContext
+      expiresIn: '90d', // Unified to 3 hours to match frontend AuthContext
     });
 
     res.status(201).json({
@@ -68,7 +68,8 @@ export const login = async (req, res) => {
     user.lastLogin = new Date();
     await user.save(); // Save the updated user
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '3h' }); // Unified to 3 hours
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '90d' }); // Changed to 30 days
+
 
     res.status(200).json({
       user: {
