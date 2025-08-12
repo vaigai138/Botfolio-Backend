@@ -1,4 +1,3 @@
-// controllers/taskController.js
 import Task from '../models/Task.js';
 import mongoose from 'mongoose'; // Ensure mongoose is imported for ObjectId
 
@@ -6,7 +5,7 @@ import mongoose from 'mongoose'; // Ensure mongoose is imported for ObjectId
 export const createTask = async (req, res) => {
   try {
     // Destructure all new fields
-    const { projectName, givenDate, submissionDate, approvedDate, payment, received } = req.body;
+    const { projectName, givenDate, submissionDate, approvedDate, payment, received, paymentMethod, paymentReceivedDate } = req.body;
     const { projectId } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(projectId)) {
@@ -22,6 +21,8 @@ export const createTask = async (req, res) => {
       approvedDate,
       payment,
       received,
+      paymentMethod,
+      paymentReceivedDate,
     });
 
     res.status(201).json(task);
