@@ -22,19 +22,16 @@ const allowedOrigins = [
 const app = express();
 
 
-
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(null, false); // Don't throw an error, just deny silently
-    }
-  },
+  origin: [
+    "https://botfolio-frontend.netlify.app",
+    "https://botfolio.dev"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
+
 
 // Handle preflight requests properly
 app.options('*', cors());
