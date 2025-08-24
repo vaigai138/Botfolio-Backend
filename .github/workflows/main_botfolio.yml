@@ -24,10 +24,9 @@ jobs:
           node-version: '22.x'
 
       - name: npm install and build
-      run: |
-      npm install
-      npm run build --if-present
-
+        run: |
+          npm install
+          npm run build --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -52,5 +51,4 @@ jobs:
           app-name: 'botfolio'
           slot-name: 'Production'
           package: .
-
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E668E0BD7C764445871DB3B20C45CCF8 }}
